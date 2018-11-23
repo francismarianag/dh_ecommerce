@@ -98,9 +98,21 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        // dd($request, $id);
+        $product = Product::find($id);
+        
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->category_id = $request->input('category_id');
+        $product->price = $request->input('price');
+        $product->status = $request->input('status');
+        $product->user_id = $request->input('user_id');
+        
+
+        $product->save();
+        return redirect('/products/' . $id);
     }
 
     /**
@@ -109,8 +121,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        Product::destroy($id);
+        return redirect('/products');
     }
 }
