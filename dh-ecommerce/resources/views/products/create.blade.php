@@ -13,7 +13,7 @@
             @endforeach
         </ul>
     @endif
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     @csrf
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
@@ -77,7 +77,10 @@
           @endif
           </div>
         </div> --}}
-
+        <div class="form-group row">
+            <label for="file">Imagen del producto</label>
+            <input class="form-control" type="file" name="image">
+        </div>
   <div class="form-group row">
     <div class="col-sm-10">
       <button type="submit" class="btn btn-primary">Guardar</button>

@@ -15,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.index')->with('products', Product::all());
+       
+        return view('products.index')
+        ->with('products', Product::paginate(3));
     }
 
     /**
@@ -44,7 +46,7 @@ class ProductController extends Controller
             'user_id' => 'required',
             'category_id' => 'required',
             // 'content' => 'required',
-            // 'image' => ''
+            'image' => 'mimes:jpeg,bmp,png'
         ];
 
         // $messages = [
@@ -56,10 +58,10 @@ class ProductController extends Controller
 
         $product = new Product($request->all());
         
-        // if($request->file('filepath') !== null) {
-        //     $file = $request->file('filepath')->store('uploads');
-        //     $post->filepath = $file;
-        // }
+        if($request->file('image') !== null) {
+            $file = $request->file('image')->store('uploads');
+            $product->image = $file;
+        }
         
         $product->save();
 
@@ -109,7 +111,7 @@ class ProductController extends Controller
         $product->price = $request->input('price');
         $product->status = $request->input('status');
         $product->user_id = $request->input('user_id');
-        
+        $product->image = $request->input('image');
 
         $product->save();
         return redirect('/products/' . $id);

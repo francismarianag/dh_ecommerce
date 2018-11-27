@@ -14,7 +14,7 @@
             @endforeach
         </ul>
     @endif
-<form method="post" action="/products/{{$product->id}}/edit">
+<form method="post" action="/products/{{$product->id}}/edit" enctype="multipart/form-data">
     @csrf
     {{ method_field('PATCH') }}
 
@@ -80,6 +80,10 @@
           @endif
           </div>
         </div> --}}
+        <div class="form-group row">
+            <label for="file">Imagen del producto</label>
+            <input class="form-control" type="file" name="image">
+        </div>
 
   <div class="form-group row">
     <div class="col-sm-10">

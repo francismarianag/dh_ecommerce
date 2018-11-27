@@ -32,6 +32,8 @@
             <hr>
             @endforeach
         </ul>
+        {{ $products->links() }}
+
     </div>
 </div>
 </div>
