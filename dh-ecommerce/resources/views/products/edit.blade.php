@@ -1,7 +1,10 @@
 @extends('layouts.master')
 
-@section('content')
+@section('title')
+    Products
+@endsection
 
+@section('content')
 
 <div class="container align-items-sm-center">
   <div class="col-6 offset-3">
@@ -69,17 +72,6 @@
             <input type="text" class="form-control" name="user_id" value="{{ $product->user_id }}">
             </div>
           </div>
-      {{-- <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">Imagen</label>
-          <div class="col-sm-10">
-          <input type="text" class="form-control" name="image" value="{{old('image')}}">
-          @if(isset($errors->all()[4]))
-                  <div class="alert alert-danger mt-2">
-                  {{$errors->all()[4]}}
-                  </div>
-          @endif
-          </div>
-        </div> --}}
         <div class="form-group row">
             <label for="file">Imagen del producto</label>
             <input class="form-control" type="file" name="image">

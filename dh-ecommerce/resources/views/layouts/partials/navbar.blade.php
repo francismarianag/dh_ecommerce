@@ -29,9 +29,9 @@
                         </div>
                 </li>
                 {{-- @endif --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#">Usuarios</a>
-                </li>
+                </li> --}}
                 @if(Auth::check() && Auth::user()->role === 7)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -46,6 +46,7 @@
                     </div>
                 </li>
                 @endif
+                
             </ul>
       <ul class="navbar-nav ml-auto">
 
@@ -58,6 +59,7 @@
                       <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarme') }}</a>
                   @endif
               </li>
+              
           @else
               <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -77,6 +79,10 @@
                   </div>
               </li>
           @endguest
+          {{-- <form class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form> --}}
       </ul>
     </div>
   </div>

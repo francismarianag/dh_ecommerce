@@ -103,6 +103,17 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request, $id);
+        $rules = [
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'status' => 'required',
+            'user_id' => 'required',
+            'category_id' => 'required',
+            'image' => 'mimes:jpeg,bmp,png'
+        ];
+
+        $this->validate($request, $rules);
         $product = Product::find($id);
         
         $product->name = $request->input('name');
@@ -111,9 +122,13 @@ class ProductController extends Controller
         $product->price = $request->input('price');
         $product->status = $request->input('status');
         $product->user_id = $request->input('user_id');
-        $product->image = $request->input('image');
+
+        if($request->has('image')){
+            $product->image = $request->file('image')->store('uploads');
+        } 
 
         $product->save();
+        
         return redirect('/products/' . $id);
     }
 

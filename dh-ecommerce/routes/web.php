@@ -21,8 +21,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 
-// rutas para productos
-Route::group(['prefix' => 'products'], function() {
+//productos
+Route::group(['prefix' => 'products', 'middleware' => ['auth']], function() {
     Route::get('/', 'ProductController@index');
     Route::get('/create', 'ProductController@create');
     Route::post('/create', 'ProductController@store');
@@ -32,8 +32,8 @@ Route::group(['prefix' => 'products'], function() {
     Route::delete('/delete/{id}', 'ProductController@destroy');
 });
 
-// rutas para categorias
-Route::group(['prefix' => 'categories'], function() {
+//categorias
+Route::group(['prefix' => 'categories', 'middleware' => ['auth']], function() {
     Route::get('/', 'CategoryController@index');
     Route::get('/create', 'CategoryController@create');
     Route::post('/create', 'CategoryController@store');
@@ -42,20 +42,5 @@ Route::group(['prefix' => 'categories'], function() {
     Route::get('/{id}', 'CategoryController@show');
     Route::delete('/delete/{id}', 'CategoryController@destroy');
 });
-
-// Comentarios
-// Route::post('/comments/store', 'CommentController@store');
-
-// Usuarios
-// Route::get('/users', 'UserController@index');
-// Route::get('/users/{id}', 'UserController@show');
-
-// rutas para admins/backoffice
-// Route::group(['prefix' => 'backoffice', 'middleware' => ['auth', 'checkrole']], function() {
-//     Route::get('/', 'BackofficeController@index');
-//     Route::get('/carga_categorias', 'BackofficeController@create_category');
-//     Route::post('/carga_categorias', 'BackofficeController@store_category');
-// });
-
 
 

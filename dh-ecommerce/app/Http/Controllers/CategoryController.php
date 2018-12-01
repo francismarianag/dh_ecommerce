@@ -16,6 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        
         return view('categories.index')->with('categories', Category::all());
     }
 
@@ -41,14 +42,9 @@ class CategoryController extends Controller
             'name' => 'required',
         ];
 
-        // $messages = [
-        //     'required' => 'el campo :attribute es requerido'
-        // ];
-       
-
         $this->validate($request, $rules);
         $category = new Category($request->all());
-        // dd($request);
+
         $category->save();
 
         return redirect()->back();
@@ -88,6 +84,11 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request, $id);
+        $rules = [
+            'name' => 'required',
+        ];
+        $this->validate($request, $rules);
+        
         $category = Category::find($id);
         
         $category->name = $request->input('name');

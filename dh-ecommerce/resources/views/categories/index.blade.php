@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Categories
+@endsection
+
 @section('content')
 <div class="container align-items-sm-center">
     <div class="col-6 offset-3">
@@ -12,7 +16,7 @@
           {{-- {{dd($categories)}} --}}
             @foreach($categories as $category)
             <li class="col-12">
-                <a class="" href="/categories/{{ $category->id }}">{{ $category->name }}</a><span class="col-4"> - Nombre: {{ $category->name }} - Fecha: {{ $category->created_at }}</span>
+                <a class="" href="/categories/{{ $category->id }}">{{ $category->name }}</a><span class="col-4"> - Cantidad de productos: {{ $category->name }} - Fecha: {{ $category->created_at }}</span>
                 {{-- @if(Auth::user()->role === 7) --}}
                 <div class="row">
                     <div class="">

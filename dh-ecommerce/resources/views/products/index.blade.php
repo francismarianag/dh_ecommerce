@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Products
+@endsection
+
 @section('content')
 <div class="container align-items-sm-center">
     <div class="col-6 offset-3">

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Products
+@endsection
+
 @section('content')
 
 
@@ -79,7 +83,7 @@
         </div> --}}
         <div class="form-group row">
             <label for="file">Imagen del producto</label>
-            <input class="form-control" type="file" name="image">
+            <input class="form-control" type="file" name="image" value="{{old('image')}}">
         </div>
   <div class="form-group row">
     <div class="col-sm-10">
