@@ -12,4 +12,11 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function amountProducts()
+    {
+        return $this->products->count();
+    }
+
+
 }

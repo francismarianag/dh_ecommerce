@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-      <a class="navbar-brand" href="{{ url('/home') }}">
+      <a class="navbar-brand" href="{{ url('/') }}">
         {{-- <img src="{{ asset('img/assets/logo.png') }}" alt=""> --}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -10,25 +10,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                {{-- @if(Auth::check())   --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link text-light" href="/">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos</a>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="/products">Todos los productos</a>
-                          <a class="dropdown-item" href="/products/create">Agregar nuevo</a>
-                        </div>
+                    <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/products">Todos los productos</a>
+                        @if(Auth::check())  
+                        <a class="dropdown-item" href="/products/create">Agregar nuevo</a>
+                        @endif
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="/categories">Todos las categorias</a>
-                          <a class="dropdown-item" href="/categories/create">Agregar nuevo</a>
-                        </div>
+                    <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/categories">Todos las categorias</a>
+                        <a class="dropdown-item" href="/categories/create">Agregar nuevo</a>
+                    </div>
                 </li>
-                {{-- @endif --}}
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="#">Usuarios</a>
                 </li> --}}

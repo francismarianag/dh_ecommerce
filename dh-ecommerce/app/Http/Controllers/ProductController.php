@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
        
         return view('products.index')
-        ->with('products', Product::paginate(3));
+        ->withProducts(Product::paginate(5));
     }
 
     /**
@@ -27,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create')->with('categories', Category::all());
+        return view('products.create')->withCategories(Category::all());
     }
 
     /**
@@ -78,7 +78,7 @@ class ProductController extends Controller
     public function show($id)
     {
         
-        return view('products.show')->with('product', Product::find($id));
+        return view('products.show')->withProduct(Product::findorFail($id));
     }
 
     /**
@@ -89,8 +89,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return view('products.edit')->with('product', Product::find($id))
-        ->with('categories', Category::all());
+        return view('products.edit')->withProduct(Product::findorFail($id))
+        ->withCategories(Category::all());
     }
 
     /**
@@ -129,7 +129,7 @@ class ProductController extends Controller
 
         $product->save();
         
-        return redirect('/products/' . $id);
+        return redirect('/products');
     }
 
     /**

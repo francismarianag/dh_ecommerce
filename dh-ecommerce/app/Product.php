@@ -16,5 +16,14 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function getImage()
+    {
+        if (!$this->attributes['image']) {
+            return 'http://placehold.it/700x400';
+        }
+
+        return "/storage/".$this->attributes['image'];
+    }
     
 }

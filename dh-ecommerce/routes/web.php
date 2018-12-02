@@ -22,7 +22,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 
 //productos
-Route::group(['prefix' => 'products', 'middleware' => ['auth']], function() {
+Route::group(['prefix' => 'products'], function() {
     Route::get('/', 'ProductController@index');
     Route::get('/create', 'ProductController@create');
     Route::post('/create', 'ProductController@store');
@@ -33,7 +33,7 @@ Route::group(['prefix' => 'products', 'middleware' => ['auth']], function() {
 });
 
 //categorias
-Route::group(['prefix' => 'categories', 'middleware' => ['auth']], function() {
+Route::group(['prefix' => 'categories'], function() {
     Route::get('/', 'CategoryController@index');
     Route::get('/create', 'CategoryController@create');
     Route::post('/create', 'CategoryController@store');

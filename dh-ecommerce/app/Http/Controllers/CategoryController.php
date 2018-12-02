@@ -17,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         
-        return view('categories.index')->with('categories', Category::all());
+        return view('categories.index')->withCategories(Category::all());
     }
 
     /**
@@ -58,8 +58,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return view('categories.show')->with('category', Category::find($id))
-        ->with('products', Product::all());
+        return view('categories.show')->withCategory(Category::findorFail($id))
+        ->withProducts(Product::all());
     }
 
     /**
@@ -71,7 +71,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         // dd($id);
-        return view('categories.edit')->with('category', Category::find($id));
+        return view('categories.edit')->withCategory(Category::findorFail($id));
     }
 
     /**
@@ -96,7 +96,7 @@ class CategoryController extends Controller
         
 
         $category->save();
-        return redirect('/categories/' . $id);
+        return redirect('/categories');
     }
 
     /**

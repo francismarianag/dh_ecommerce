@@ -1,0 +1,19 @@
+ul {
+  list-style: none;
+}
+.spacer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+img.card-img-top{
+  min-height: 155px;
+  max-height: 155px;
+}
+
+/* COLOR */
+
+:root {
+  --myColorPrimary: #6c757d; 
+}
+
