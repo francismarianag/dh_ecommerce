@@ -33,7 +33,7 @@ Route::group(['prefix' => 'products'], function() {
 });
 
 //categorias
-Route::group(['prefix' => 'categories'], function() {
+Route::group(['prefix' => 'categories', 'middleware' => ['auth']], function() {
     Route::get('/', 'CategoryController@index');
     Route::get('/create', 'CategoryController@create');
     Route::post('/create', 'CategoryController@store');
@@ -41,6 +41,11 @@ Route::group(['prefix' => 'categories'], function() {
     Route::patch('/{id}/edit', 'CategoryController@update');
     Route::get('/{id}', 'CategoryController@show');
     Route::delete('/delete/{id}', 'CategoryController@destroy');
+
+    Route::group(['middleware' => ['auth']], function () {
+        
+    });
+    
 });
 
 

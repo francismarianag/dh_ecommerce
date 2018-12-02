@@ -18,8 +18,10 @@
                 <th scope="col">Producto</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Precio</th>
+                @if(Auth::check() && auth()->user()->id !== 2)
                 <th scope="col">Estado</th>
                 <th scope="col">Accion</th>
+                @endif
                 </tr>
             </thead>
 
@@ -37,6 +39,7 @@
                         <td>
                             {{$product->price}}
                         </td>
+                        @if(Auth::check() && auth()->user()->id !== 2)
                         <td>
                             @if ($product->status === 1)
                                 Activo
@@ -59,6 +62,7 @@
                                 </div>
                             </div>
                         </td>
+                        @endif
                         
                     </tr>
                 @endforeach

@@ -17,7 +17,7 @@
                     <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="/products">Todos los productos</a>
-                        @if(Auth::check())  
+                        @if(Auth::check() && auth()->user()->id !== 2)
                         <a class="dropdown-item" href="/products/create">Agregar nuevo</a>
                         @endif
                     </div>
@@ -26,26 +26,12 @@
                     <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="/categories">Todos las categorias</a>
+                        @if(Auth::check() && auth()->user()->id !== 2)
                         <a class="dropdown-item" href="/categories/create">Agregar nuevo</a>
+                        @endif
                     </div>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="#">Usuarios</a>
-                </li> --}}
-                @if(Auth::check() && Auth::user()->role === 7)
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Backoffice
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">General</a>
-                        <a class="dropdown-item" href="#">Usuarios</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Posts</a>
-                    </div>
-                </li>
-                @endif
+                
                 
             </ul>
       <ul class="navbar-nav ml-auto">
