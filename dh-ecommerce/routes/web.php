@@ -33,19 +33,17 @@ Route::group(['prefix' => 'products'], function() {
 });
 
 //categorias
+
 Route::group(['prefix' => 'categories', 'middleware' => ['auth']], function() {
-    Route::get('/', 'CategoryController@index');
     Route::get('/create', 'CategoryController@create');
     Route::post('/create', 'CategoryController@store');
     Route::get('/{id}/edit', 'CategoryController@edit');
     Route::patch('/{id}/edit', 'CategoryController@update');
-    Route::get('/{id}', 'CategoryController@show');
-    Route::delete('/delete/{id}', 'CategoryController@destroy');
-
-    Route::group(['middleware' => ['auth']], function () {
-        
-    });
-    
+    Route::delete('/delete/{id}', 'CategoryController@destroy');    
 });
 
-
+Route::group(['prefix' => 'categories'], function() {
+    Route::get('/', 'CategoryController@index');
+    Route::get('/{id}', 'CategoryController@show');
+    
+});
