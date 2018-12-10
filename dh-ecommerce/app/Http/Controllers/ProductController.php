@@ -39,7 +39,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'name' => 'required',
+            'name' => 'required|unique:products',
             'description' => 'required',
             'price' => 'required',
             'status' => 'required', //
@@ -47,12 +47,7 @@ class ProductController extends Controller
             'category_id' => 'required',
             // 'content' => 'required',
             'image' => 'mimes:jpeg,bmp,png'
-        ];
-
-        // $messages = [
-        //     'required' => 'el campo :attribute es requerido'
-        // ];
-       
+        ];       
 
         $this->validate($request, $rules);
 

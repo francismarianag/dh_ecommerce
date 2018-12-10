@@ -6,7 +6,6 @@
 
 @section('content')
 
-
 <div class="container">
     <div class="col-sm-12 col-lg-8 mx-auto">
         <h2>{{"Añadir Producto"}}</h2>
@@ -61,7 +60,7 @@
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Estado</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="status" value="1">
+                <input type="text" class="form-control" name="status" value="1">
                 </div>
             </div>
             <div class="form-group row">

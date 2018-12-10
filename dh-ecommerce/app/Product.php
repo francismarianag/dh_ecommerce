@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Product extends Model
 {
+    use SoftDeletes;
     protected $guarded = [];
 
     public function user() {
@@ -26,4 +29,12 @@ class Product extends Model
         return "/storage/".$this->attributes['image'];
     }
     
+    public function getStatus()
+    {
+        if ($this->attributes['status']) {
+            return 'Activo';
+        } else {
+            return 'Inactivo';
+        }
+    }
 }

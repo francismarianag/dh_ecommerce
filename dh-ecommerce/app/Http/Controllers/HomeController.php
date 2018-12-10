@@ -25,7 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // dd(auth()->user()->id);
         return view('start')->withCategories(Category::all())
         ->withProducts(Product::where('status', 1)->get());
     }

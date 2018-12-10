@@ -22,19 +22,20 @@ Route::get('/', 'HomeController@index')->name('home');
 
 
 //productos
-Route::group(['prefix' => 'products'], function() {
-    Route::get('/', 'ProductController@index');
+Route::group(['prefix' => 'products', 'middleware' => ['auth', 'checkRole']], function() {
     Route::get('/create', 'ProductController@create');
     Route::post('/create', 'ProductController@store');
     Route::get('/{id}/edit', 'ProductController@edit');
     Route::patch('/{id}/edit', 'ProductController@update');
-    Route::get('/{id}', 'ProductController@show');
     Route::delete('/delete/{id}', 'ProductController@destroy');
+});
+Route::group(['prefix' => 'products'], function() {
+    Route::get('/', 'ProductController@index');
+    Route::get('/{id}', 'ProductController@show');
 });
 
 //categorias
-
-Route::group(['prefix' => 'categories', 'middleware' => ['auth']], function() {
+Route::group(['prefix' => 'categories', 'middleware' => ['auth', 'checkRole']], function() {
     Route::get('/create', 'CategoryController@create');
     Route::post('/create', 'CategoryController@store');
     Route::get('/{id}/edit', 'CategoryController@edit');

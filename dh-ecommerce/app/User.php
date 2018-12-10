@@ -34,8 +34,4 @@ class User extends Authenticatable
         return $this->belongsTo(Product::class);
     }
     
-    // public function role()
-    // {
-    //     return $this->hasOne(Role::class);
-    // }
 }

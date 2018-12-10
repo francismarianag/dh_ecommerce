@@ -17,7 +17,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Cant de Productos</th>
-                        @if(Auth::check() && auth()->user()->id !== 2)
+                        @if(Auth::check() && auth()->user()->role_id == 1)
                         <th scope="col">Estado</th>
                         <th scope="col">Accion</th>
                         @endif
@@ -34,13 +34,15 @@
                         <td>
                             {{$category->amountProducts()}}
                         </td> 
-                        @if(Auth::check() && auth()->user()->id !== 2)
+                        @if(Auth::check() && auth()->user()->role_id == 1)
                         <td>
-                            @if ($category->status === 1)
+                            {{$category->getStatus()}}
+
+                            {{-- @if ($category->status === 1)
                                 Activo
                             @else
                                 Inactivo
-                            @endif
+                            @endif --}}
                         </td>
                         <td>
                             <div class="row">

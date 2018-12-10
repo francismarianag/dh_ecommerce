@@ -6,7 +6,7 @@ $factory->define(App\Product::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
         'description' => $faker->sentence,
-        'price' => $faker->numberBetween(0, 2),
+        'price' => $faker->numberBetween(100, 1000),
         // 'image' => ,
         'status' => 1,
         'user_id' => 1,

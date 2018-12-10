@@ -22,5 +22,13 @@ class Category extends Model
         return $this->products->count();
     }
 
+    public function getStatus()
+    {
+        if ($this->attributes['status']) {
+            return 'Activo';
+        } else {
+            return 'Inactivo';
+        }
+    }
 
 }

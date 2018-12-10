@@ -18,7 +18,7 @@
                 <th scope="col">Producto</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Precio</th>
-                @if(Auth::check() && auth()->user()->id !== 2)
+                @if(Auth::check() && auth()->user()->role_id == 1)
                 <th scope="col">Estado</th>
                 <th scope="col">Accion</th>
                 @endif
@@ -39,13 +39,14 @@
                         <td>
                             {{$product->price}}
                         </td>
-                        @if(Auth::check() && auth()->user()->id !== 2)
+                        @if(Auth::check() && auth()->user()->role_id == 1)
                         <td>
-                            @if ($product->status === 1)
+                            {{$product->getStatus()}}
+                            {{-- @if ($product->status === 1)
                                 Activo
                             @else
                                 Inactivo
-                            @endif
+                            @endif --}}
                         </td>
                         <td>
                             <div class="row">

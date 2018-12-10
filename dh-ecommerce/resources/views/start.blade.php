@@ -19,9 +19,12 @@
               {{-- {{dd($category->products()->count())}} --}}
 
               {{-- {{dd($category->amountProducts())}} --}}
+                  @if ($category->amountProducts() >= 1)
+                      
                   <li class="list-group-item d-flex justify-content-between">
                   <a class="text-dark" href="/categories/{{ $category->id }}">{{ $category->name }}</a><span class="text-black-50">{{$category->amountProducts()}}</span>
                   </li>
+                  @endif
                 @endforeach
             </ul>
         </div>

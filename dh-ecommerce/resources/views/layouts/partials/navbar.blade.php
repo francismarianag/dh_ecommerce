@@ -17,7 +17,7 @@
                     <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="/products">Todos los productos</a>
-                        @if(Auth::check() && auth()->user()->id !== 2)
+                        @if(Auth::check() && auth()->user()->role_id == 1) 
                         <a class="dropdown-item" href="/products/create">Agregar nuevo</a>
                         @endif
                     </div>
@@ -26,7 +26,7 @@
                     <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="/categories">Todos las categorias</a>
-                        @if(Auth::check() && auth()->user()->id !== 2)
+                        @if(Auth::check() && auth()->user()->role_id == 1)
                         <a class="dropdown-item" href="/categories/create">Agregar nuevo</a>
                         @endif
                     </div>
