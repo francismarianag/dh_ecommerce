@@ -124,7 +124,7 @@ class ProductController extends Controller
 
         $product->save();
         
-        return redirect('/products');
+        return redirect('/products/'.$id.'/edit');
     }
 
     /**
