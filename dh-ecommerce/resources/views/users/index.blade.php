@@ -18,6 +18,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Email</th>
                 @if(Auth::check() && auth()->user()->role_id == 1)
+                <th scope="col">Perfil</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Accion</th>
                 @endif
@@ -38,6 +39,9 @@
                             {{$user->email}}
                         </td>
                         @if(Auth::check() && auth()->user()->role_id == 1)
+                        <td>
+                            {{$user->getProfile()}}
+                        </td>
                         <td>
                             {{$user->getStatus()}}
                         </td>

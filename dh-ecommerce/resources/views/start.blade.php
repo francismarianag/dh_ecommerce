@@ -82,6 +82,7 @@
         @endforeach
 
       </div>
+      {{-- {{ $products->links() }} --}}
       <!-- /.row -->
 
     </div>

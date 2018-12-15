@@ -42,11 +42,6 @@
                         @if(Auth::check() && auth()->user()->role_id == 1)
                         <td>
                             {{$product->getStatus()}}
-                            {{-- @if ($product->status === 1)
-                                Activo
-                            @else
-                                Inactivo
-                            @endif --}}
                         </td>
                         <td>
                             <div class="row">

@@ -46,5 +46,14 @@ class User extends Authenticatable
             return 'Inactivo';
         }
     }
+
+    public function getProfile()
+    {
+        if ($this->attributes['role_id'] == 1) {
+            return 'Admin';
+        } else {
+            return 'Customer';
+        }
+    }
     
 }

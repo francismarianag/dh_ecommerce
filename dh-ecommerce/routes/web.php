@@ -22,7 +22,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 
 //productos
-Route::group(['prefix' => 'products', 'middleware' => ['auth', 'checkRole']], function() {
+Route::group(['prefix' => 'products', 'middleware' => ['auth', 'checkRoleAdmin']], function() {
     Route::get('/create', 'ProductController@create');
     Route::post('/create', 'ProductController@store');
     Route::get('/{id}/edit', 'ProductController@edit');
@@ -35,7 +35,7 @@ Route::group(['prefix' => 'products'], function() {
 });
 
 //categorias
-Route::group(['prefix' => 'categories', 'middleware' => ['auth', 'checkRole']], function() {
+Route::group(['prefix' => 'categories', 'middleware' => ['auth', 'checkRoleAdmin']], function() {
     Route::get('/create', 'CategoryController@create');
     Route::post('/create', 'CategoryController@store');
     Route::get('/{id}/edit', 'CategoryController@edit');
@@ -50,8 +50,9 @@ Route::group(['prefix' => 'categories'], function() {
 });
 
 // Usuarios
-Route::group(['middleware' => ['auth', 'checkRole']], function () {
-    Route::get('/users', 'UserController@index');
-    Route::delete('users/delete/{id}', 'UserController@destroy');    
-    Route::get('users/restore/{id}', 'UserController@restore');    
+Route::group(['prefix' => 'users', 'middleware' => ['auth', 'checkRoleAdmin']],
+function () {
+    Route::get('/', 'UserController@index');
+    Route::delete('/delete/{id}', 'UserController@destroy');    
+    Route::get('/restore/{id}', 'UserController@restore');    
 });

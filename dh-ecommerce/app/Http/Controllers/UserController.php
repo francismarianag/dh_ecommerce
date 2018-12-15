@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','checkRole']);
+        $this->middleware(['auth','checkRoleAdmin']);
     }
     
     /**
@@ -19,9 +19,6 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        // return view('users.index')->withUsers(User::paginate(15))
-        // ->whith("user_deleted", User::onlyTrashed()->get());
         return view('users.index')->with("users", User::withTrashed()->get());
     }
 

@@ -31,7 +31,11 @@
                         @endif
                     </div>
                 </li>
-                
+                @if(Auth::check() && auth()->user()->role_id == 1)
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/users" role="button" aria-haspopup="true" aria-expanded="false">Usuarios</a>
+                </li>
+                @endif
                 
             </ul>
       <ul class="navbar-nav ml-auto">
