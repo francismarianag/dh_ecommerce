@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -18,7 +19,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+
+        // return view('users.index')->withUsers(User::paginate(15))
+        // ->whith("user_deleted", User::onlyTrashed()->get());
+        return view('users.index')->with("users", User::withTrashed()->get());
     }
 
     /**
@@ -84,6 +88,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect('/users');
+    }
+
+    public function restore($id) 
+    {
+        User::withTrashed()->where('id', $id)->restore();
+        return redirect ('/users');
     }
 }

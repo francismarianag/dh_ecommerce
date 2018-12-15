@@ -48,3 +48,10 @@ Route::group(['prefix' => 'categories'], function() {
     Route::get('/{id}', 'CategoryController@show');
     
 });
+
+// Usuarios
+Route::group(['middleware' => ['auth', 'checkRole']], function () {
+    Route::get('/users', 'UserController@index');
+    Route::delete('users/delete/{id}', 'UserController@destroy');    
+    Route::get('users/restore/{id}', 'UserController@restore');    
+});
