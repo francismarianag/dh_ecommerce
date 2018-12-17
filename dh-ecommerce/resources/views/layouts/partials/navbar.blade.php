@@ -36,7 +36,11 @@
                     <a class="nav-link text-light" href="/users" role="button" aria-haspopup="true" aria-expanded="false">Usuarios</a>
                 </li>
                 @endif
-                
+                @if(Auth::check() && auth()->user()->role_id == 2)
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/cart" role="button" aria-haspopup="true" aria-expanded="false">Carrito</a>
+                </li>
+                @endif
             </ul>
       <ul class="navbar-nav ml-auto">
 

@@ -56,3 +56,11 @@ function () {
     Route::delete('/delete/{id}', 'UserController@destroy');    
     Route::get('/restore/{id}', 'UserController@restore');    
 });
+
+//cart
+Route::group(['prefix' => 'cart', 'middleware' => ['auth', 'checkRole']],
+function () {
+    Route::get('/', 'CartController@index');
+    Route::post('/{id}', 'CartController@store');
+    Route::get('/remove', 'CartController@remove'); 
+});

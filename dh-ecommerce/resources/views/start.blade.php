@@ -73,13 +73,13 @@
               <h5>$ {{ $product->price }}</h5>
               <p class="card-text">{{ $product->description }}</p>
             </div>
-            {{-- <div class="card-car">
-              <form action="" method="POST">
-                  <input type="numer" class="form-control" placeholder="cantidad">
+            <div class="card-car">
+              <form action="/cart/{{ $product->id }}" method="POST">
+                  {{-- <input type="numer" class="form-control" placeholder="cantidad"> --}}
                     {{ csrf_field() }}
                   <button type="submit" class="btn btn-primary btn-sm">Añadir al carrito</button>
                 </form>
-            </div> --}}
+            </div>
             {{-- <div class="card-footer">
               <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
             </div> --}}

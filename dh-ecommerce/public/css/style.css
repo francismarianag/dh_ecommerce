@@ -20,9 +20,10 @@ img.card-img-top{
 .card-car{
   padding: 1.25rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card-car input {
   width: 40%;
 }
+
