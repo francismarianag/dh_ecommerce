@@ -18,12 +18,12 @@
           </ul>
       @endif
 
-      <form method="post">
+      <form method="post" id="categoria">
           @csrf
         <div class="form-group row">
           <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control  {{ $errors->has('name') ? 'border-danger' : ''}}" name="name" value="{{old('name')}}">
+            <input type="text" class="form-control  {{ $errors->has('name') ? 'border-danger' : ''}}" name="name" id="name" value="{{old('name')}}">
           </div>
         </div>
         <fieldset class="form-group">

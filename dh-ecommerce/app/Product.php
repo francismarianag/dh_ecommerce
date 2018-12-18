@@ -22,8 +22,9 @@ class Product extends Model
 
     public function getImage()
     {
-        if (!$this->attributes['image']) {
-            return 'http://placehold.it/700x400';
+
+        if (strncmp($this->attributes['image'], 'uploads', 7) !== 0){ 
+            return $this->attributes['image'];
         }
 
         return "/storage/".$this->attributes['image'];
@@ -37,4 +38,5 @@ class Product extends Model
             return 'Inactivo';
         }
     }
+    
 }

@@ -7,7 +7,7 @@ $factory->define(App\Product::class, function (Faker $faker) {
         'name' => $faker->word,
         'description' => $faker->sentence,
         'price' => $faker->numberBetween(100, 1000),
-        // 'image' => $faker->imageUrl($width = 700, $height = 400),
+        'image' => $faker->imageUrl($width = 700, $height = 400),
         'status' => 1,
         'user_id' => 1,
         // 'category_id' => $faker->numberBetween(0,5)

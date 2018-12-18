@@ -18,6 +18,9 @@
                 <th scope="col">Producto</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Precio</th>
+                @if(Auth::check() && auth()->user()->role_id ==2)
+                <th scope="col">Accion</th>
+                @endif
                 @if(Auth::check() && auth()->user()->role_id == 1)
                 <th scope="col">Estado</th>
                 <th scope="col">Accion</th>
@@ -39,7 +42,17 @@
                         <td>
                             {{$product->price}}
                         </td>
-                        @if(Auth::check() && auth()->user()->role_id == 1)
+                        @if(Auth::check() && auth()->user()->role_id == 2)
+                        <td>
+                            <div class="card-car">
+                                <form action="/cart/{{ $product->id }}" method="POST">
+                                    {{-- <input type="numer" class="form-control" placeholder="cantidad"> --}}
+                                        {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-primary btn-sm">Añadir al carrito</button>
+                                    </form>
+                            </div>
+                        </td>
+                        @elseif(Auth::check() && auth()->user()->role_id == 1)
                         <td>
                             {{$product->getStatus()}}
                         </td>

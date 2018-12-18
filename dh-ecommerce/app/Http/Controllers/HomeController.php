@@ -26,6 +26,6 @@ class HomeController extends Controller
     public function index()
     {
         return view('start')->withCategories(Category::all())
-        ->withProducts(Product::where('status', 1)->get());
+        ->withProducts(Product::paginate(15));
     }
 }
