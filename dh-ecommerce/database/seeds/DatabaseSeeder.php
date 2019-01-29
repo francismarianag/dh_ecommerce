@@ -21,5 +21,9 @@ class DatabaseSeeder extends Seeder
                 'category_id' => $category->id
             ]);
         }
+
+        $this->call([
+            UsersTableSeeder::class,
+        ]);
     }
 }
